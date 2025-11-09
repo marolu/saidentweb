@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../javascript/"></script>
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="../javascript/profile.js"></script>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="../html/citaspen.html" data-page="citaspen">Citas Pendientes</a> 
+            <a href="../html/citascan.html" data-page="citascan">Citas Canceladas</a>    
+            <a href="../html/citasfinal.html" data-page="citasfinal">Citas Finalizadas</a> 
+            <a href="../html/perfil.html" class="active" data-page="perfil">Perfil</a> 
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>MI PERFIL</h1>
+        
+        <div id="alertContainer"></div>
+        
+        <div class="profile-grid">
+            <!-- Profile Picture Section -->
+            <div class="profile-card profile-pic-section">
+                <div class="profile-pic-container">
+                    <img src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic" id="profilePic">
+                    <button class="edit-pic-btn" onclick="document.getElementById('fileInput').click()">
+                        ✏️
+                    </button>
+                </div>
+                <input type="file" id="fileInput" accept="image/*">
+                <p class="change-pic-text" onclick="document.getElementById('fileInput').click()">
+                    Cambiar foto de perfil
+                </p>
+            </div>
+
+            <!-- Profile Info Section -->
+            <div class="profile-card profile-info">
+                <h2>Información Personal</h2>
+                
+                <div class="info-group">
+                    <label class="info-label">Nombre Completo</label>
+                    <div class="info-value" id="userName">Cargando...</div>
+                </div>
+
+                <div class="info-group">
+                    <label class="info-label">Correo Electrónico</label>
+                    <div class="info-value" id="userEmail">Cargando...</div>
+                </div>
+
+                <div class="info-group">
+                    <label class="info-label">DNI</label>
+                    <div class="info-value" id="userDNI">Cargando...</div>
+                </div>
+
+                <div class="info-group">
+                    <label class="info-label">Contraseña</label>
+                    <div class="info-value password" id="userPassword">••••••••</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="editProfile()">Editar Perfil</button>
+                    <button class="btn btn-danger" id="logout">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats-card">
+            <h2>Estadísticas de Citas</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number" id="pendingCount">0</div>
+                    <div class="stat-label">Pendientes</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="finishedCount">0</div>
+                    <div class="stat-label">Finalizadas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="cancelledCount">0</div>
+                    <div class="stat-label">Canceladas</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
